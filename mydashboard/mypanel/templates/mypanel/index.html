@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load horizon %}
+
+{% load i18n %}
+{% block title %}
+  {% trans "Mypanel" %}
+{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Mypanel") %}
+{% endblock page_header %}
+
+{% block main %}
+<div class="row">
+   <div class="col-sm-12">
+   {{ tab_group.render }}
+
+<form method="post" action="">
+    {% csrf_token %}
+<input type="radio" id="html" name="fav_language" value="HTML">
+  <label for="html">Kubernetes</label><br>
+  <input type="radio" id="css" name="fav_language" value="CSS">
+  <label for="css">Hadoop</label><br>
+  <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+  <label for="javascript">Docker</label>
+
+    <input name="target_id">
+    <button type="submit">Gönder</button>
+</form>
+
+{% endblock %}

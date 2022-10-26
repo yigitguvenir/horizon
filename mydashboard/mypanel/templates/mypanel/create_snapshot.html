@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create Snapshot" %}{% endblock %}
+
+{% block page_header %}
+  {% include "horizon/common/_page_header.html" with title=_("Create a Snapshot") %}
+{% endblock page_header %}
+
+{% block main %}
+    {% include 'mydashboard/mypanel/_create_snapshot.html' %}
+{% endblock %}
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+    <h3>{% trans "Description:" %}</h3>
+    <p>{% trans "Snapshots preserve the disk state of a running instance." %}</p>
+{% endblock %}
